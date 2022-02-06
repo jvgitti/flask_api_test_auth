@@ -1,0 +1,52 @@
+swagger: "2.0"
+info:
+  title: "Swagger Crud"
+  version: "1.0.0"
+
+host: "{{host_with_port}}"
+
+schemes:
+  - "https"
+  - "http"
+paths:
+  /ping:
+    get:
+      tags:
+        - "Alive"
+      summary: "Ping"
+      operationId: "ping"
+      produces:
+        - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "pong response"
+      x-swagger-router-controller: "server.controller.ping_controller"
+  /jsonplaceholder:
+    get:
+      tags:
+        - "jsonplaceholder"
+      summary: "Retorna os últimos 5 registros"
+      operationId: "get_ultimos_cinco"
+      produces:
+        - "application/json"
+      parameters: []
+      responses:
+        200:
+          description: "Retorna os últimos 5 registros"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Jsonplaceholder"
+      x-swagger-router-controller: "server.controller.jsonplaceholder_controller"
+
+definitions:
+  Jsonplaceholder:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        example: 1
+      title:
+        type: "string"
+        example: "string"
