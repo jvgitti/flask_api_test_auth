@@ -1,12 +1,11 @@
 Para subir o projeto, execute os comando abaixo:
 
--> run pip install -r requirements.txt
+-> docker build -t app .
+-> docker run -p 5001:5000 -d app
 
--> python -m server
+A Api estará dispoível em http://localhost:5001/
 
-A Api estará dispoível em http://localhost:8080/
-
-Documentação das rotas: http://localhost:8080/ui
+Documentação das rotas: http://localhost:5001/ui
 
 Basic Authentication necessária para as rotas diferentes de /ui e /ping
 
@@ -20,7 +19,7 @@ usuario: usuario2
 
 senha: abc
 
-Endpoint para a consulta dos 5 ultimos registros: http://localhost:8080/jsonplaceholder
+Endpoint para a consulta dos 5 ultimos registros: http://localhost:5001/jsonplaceholder
 
 Para rodas os testes, execute os comandos:
 
